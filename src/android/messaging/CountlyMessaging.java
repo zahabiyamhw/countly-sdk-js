@@ -76,7 +76,7 @@ public class CountlyMessaging extends WakefulBroadcastReceiver {
      * this activity is used as a final destination.
      */
     private static Class<? extends Activity> activityClass;
-    private static boolean disableUI;
+    public static boolean disableUI;
 
     public static void setActivity(Activity activity) {
         setActivity(activity, activity.getClass());

@@ -15,6 +15,8 @@ import android.content.Context;
 import android.os.Bundle;
 import android.util.Log;
 import ly.count.android.sdk.Countly;
+import ly.count.android.sdk.messaging.CountlyMessaging;
+
 
 public class CountlyCordova extends CordovaPlugin {
 
@@ -259,6 +261,8 @@ public class CountlyCordova extends CordovaPlugin {
                 mode = Countly.CountlyMessagingMode.PRODUCTION;
             }
             Countly.sharedInstance().onRegistrationId(registrationId,mode);
+            CountlyMessaging.disableUI = true;
+            CountlyMessaging.setActivity(cordova.getActivity());
             // Countly.sharedInstance().initMessaging(cordova.getActivity(), cordova.getActivity().getClass(), projectId, mode);
             callbackContext.success("initMessaging success");
             Log.e("Nicolson", registrationId);

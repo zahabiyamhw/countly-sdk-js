@@ -143,10 +143,10 @@
     <source-file src="src/android/CountlyStarRating.java" target-dir="src/ly/count/android/sdk"/>
     
     <!-- push notification config -->
-    <!-- <source-file src="src/android/messaging/CountlyMessaging.java" target-dir="src/ly/count/android/sdk/messaging"/>
+    <source-file src="src/android/messaging/CountlyMessaging.java" target-dir="src/ly/count/android/sdk/messaging"/>
     <source-file src="src/android/messaging/CountlyMessagingService.java" target-dir="src/ly/count/android/sdk/messaging"/>
     <source-file src="src/android/messaging/Message.java" target-dir="src/ly/count/android/sdk/messaging"/>
-    <source-file src="src/android/messaging/ProxyActivity.java" target-dir="src/ly/count/android/sdk/messaging"/> -->
+    <source-file src="src/android/messaging/ProxyActivity.java" target-dir="src/ly/count/android/sdk/messaging"/>
 
     <source-file src="src/android/OpenUDID_manager.java" target-dir="src/org/openudid/"/>
     <source-file src="src/android/OpenUDID_service.java" target-dir="src/org/openudid/"/>
