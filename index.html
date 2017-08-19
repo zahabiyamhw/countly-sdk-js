@@ -38,6 +38,7 @@
     <div class="app">
         <h1 class="ui center aligned header">Countly Cordova Demo App</h1>
         <img class="ui centered medium image" src="https://count.ly/wp-content/uploads/2014/10/countly_logo_color.png">
+        <button onclick="app.init()" class="fluid ui green button">Init</button>
         <button onclick="app.start()" class="fluid ui green button">Start</button>
         <button onclick="app.stop()" class="fluid ui red button">Stop</button>
         <div class="ui horizontal divider">Events Start</div>
@@ -66,6 +67,7 @@
         <button onclick="app.onRegistrationId()" class="fluid ui button teal">Push Message</button>
         <button onclick="app.changeDeviceId('123456')" class="fluid ui button">Change Device ID</button>
         <button onclick="app.enableParameterTamperingProtection('123456')" class="fluid ui button">Enable Parameter Tapmering Protection</button>
+        <button onclick="app.setOptionalParametersForInitialization()" class="fluid ui button">City, State, and Location</button>
         <div class="ui horizontal divider">Other Methods End</div>
     </div>
     <script type="text/javascript" src="cordova.js"></script>
@@ -79,19 +81,35 @@
 
     app = {};
     document.addEventListener("deviceready", function() {
-        // Countly.init("https://try.count.ly","21b377226a4260dcbf42e88db5a7d0f2d904c928");
-        Countly.init("https://try.count.ly", "0e8a00e8c01395a0af8be0e55da05a404bb23c3e", "custom_device_id_123456");
-        var isAdvertiseID = true;
-        // Countly.init("https://try.count.ly","21b377226a4260dcbf42e88db5a7d0f2d904c928", null, isAdvertiseID);
+        // Countly.init("https://try.count.ly","0e8a00e8c01395a0af8be0e55da05a404bb23c3e");
+        // Countly.init("https://try.count.ly", "0e8a00e8c01395a0af8be0e55da05a404bb23c3e", "custom_device_id_123456");
+        // var isAdvertiseID = true;
+        // Countly.init("https://try.count.ly","0e8a00e8c01395a0af8be0e55da05a404bb23c3e", null, isAdvertiseID);
         //replace your server ip/url // replace it with your "App Key"
         // app.onRegistrationId();
         // app.test();
         // alert("deviceready");
     }, false);
+
+    app.init = function(){
+        document.addEventListener("deviceready", function() {
+            Countly.init("https://try.count.ly","0e8a00e8c01395a0af8be0e55da05a404bb23c3e");
+        }, false);
+    };
     app.test = function() {
         app.onRegistrationId();
         app.sendSampleEvent();
     }
+
+    app.setOptionalParametersForInitialization = function(){
+        Countly.setOptionalParametersForInitialization({
+            city: "Tampa",
+            country: "US",
+            latitude: "28.006324",
+            longitude: "-82.7166183"
+        });
+    };
+
     app.event = function() {
         setInterval(function() {
             app.sendSampleEvent();

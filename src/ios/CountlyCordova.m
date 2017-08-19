@@ -35,7 +35,9 @@ CountlyConfig* config = nil;
     NSString* serverurl = [command.arguments objectAtIndex:0];
     NSString* appkey = [command.arguments objectAtIndex:1];
 
-    config = CountlyConfig.new;
+    if(config == nil){
+        config = CountlyConfig.new;
+    }
     config.appKey = appkey;
     config.host = serverurl;
 
@@ -170,7 +172,7 @@ CountlyConfig* config = nil;
     if(mode == 1){
       // [[CountlyConnectionQueue sharedInstance] setStartedWithTest:YES];
     }
-    CountlyPushNotifications.sharedInstance.token = token;    
+    CountlyPushNotifications.sharedInstance.token = token;
     [CountlyPushNotifications.sharedInstance sendToken];
     // [Countly.sharedInstance didRegisterForRemoteNotificationsWithDeviceToken:tokenByte];
 
@@ -240,7 +242,7 @@ CountlyConfig* config = nil;
 {
     NSString* eventType = [command.arguments objectAtIndex:0];
     CDVPluginResult* pluginResult = nil;
-    
+
     if ([eventType  isEqual: @"event"]) {
         NSString* eventName = [command.arguments objectAtIndex:1];
         [Countly.sharedInstance endEvent:eventName];
@@ -262,7 +264,7 @@ CountlyConfig* config = nil;
     else{
         pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"none cases!"];
     }
-    
+
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
@@ -284,7 +286,7 @@ CountlyConfig* config = nil;
 - (void)enableCrashReporting:(CDVInvokedUrlCommand*)command
 {
     config.features = @[CLYCrashReporting];
-    
+
     CDVPluginResult* pluginResult = nil;
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"enableCrashReporting!"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -292,10 +294,9 @@ CountlyConfig* config = nil;
 
 - (void)addCrashLog:(CDVInvokedUrlCommand*)command
 {
-    NSString* token = [command.arguments objectAtIndex:0];
-    NSString* messagingMode = [command.arguments objectAtIndex:1];
-    int mode = [messagingMode intValue];
-    NSData *tokenByte = [token dataUsingEncoding:NSUTF8StringEncoding];
+    NSString* record = [command.arguments objectAtIndex:0];
+    [Countly.sharedInstance crashLog: record];
+
     CDVPluginResult* pluginResult = nil;
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"addCrashLog!"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
@@ -305,7 +306,7 @@ CountlyConfig* config = nil;
 {
     NSString* keyName = [command.arguments objectAtIndex:0];
     NSString* keyValue = [command.arguments objectAtIndex:1];
-    
+
     [Countly.user set:keyName value:keyValue];
     [Countly.user save];
 
@@ -317,7 +318,7 @@ CountlyConfig* config = nil;
 - (void)userData_increment:(CDVInvokedUrlCommand*)command
 {
     NSString* keyName = [command.arguments objectAtIndex:0];
-    
+
     [Countly.user increment:keyName];
     [Countly.user save];
 
@@ -386,12 +387,36 @@ CountlyConfig* config = nil;
 {
     NSString* keyName = [command.arguments objectAtIndex:0];
     NSString* keyValue = [command.arguments objectAtIndex:1];
-    
+
     [Countly.user setOnce:keyName value:keyValue];
     [Countly.user save];
 
     CDVPluginResult* pluginResult = nil;
     pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"userData_setOnce!"];
+    [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
+}
+
+- (void)setOptionalParametersForInitialization:(CDVInvokedUrlCommand*)command
+{
+    NSString* city = [command.arguments objectAtIndex:0];
+    NSString* country = [command.arguments objectAtIndex:1];
+
+    NSString* latitudeString = [command.arguments objectAtIndex:2];
+    NSString* longitudeString = [command.arguments objectAtIndex:3];
+
+    double latitudeDouble = [latitudeString doubleValue];
+    double longitudeDouble = [longitudeString doubleValue];
+
+    if(config == nil){
+        config = CountlyConfig.new;
+    }
+
+    config.ISOCountryCode = country;
+    config.city = city;
+    config.location = (CLLocationCoordinate2D){latitudeDouble,longitudeDouble};
+
+    CDVPluginResult* pluginResult = nil;
+    pluginResult = [CDVPluginResult resultWithStatus:CDVCommandStatus_OK messageAsString:@"setOptionalParametersForInitialization!"];
     [self.commandDelegate sendPluginResult:pluginResult callbackId:command.callbackId];
 }
 
