@@ -213,16 +213,18 @@
         var push = PushNotification.init({
             android: {
                 senderID: "881000050249"
+<<<<<<< HEAD
+=======
             },
             browser: {
                 pushServiceURL: 'http://push.api.phonegap.com/v1/push'
+>>>>>>> master
             },
             ios: {
                 alert: "true",
                 badge: "true",
                 sound: "true"
-            },
-            windows: {}
+            }
         });
 
         push.on('registration', function(data) {
