@@ -1,15 +1,7 @@
 {
   "name": "countly-sdk-js",
-  "description": "Analytics.",
-  "version": "18.08.2",
-  "homepage": "https://github.com/Countly/countly-sdk-js#readme",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/Countly/countly-sdk-js.git"
-  },
-  "bugs": {
-    "url": "https://github.com/Countly/countly-sdk-js/issues"
-  },
+  "version": "18.8.2",
+  "description": "\n    Countly is an innovative, real-time, open source mobile analytics application. It collects data from mobile devices, and visualizes this information to analyze mobile application usage and end-user behavior. There are two parts of Countly: the server that collects and analyzes data, and mobile SDK that sends this data. Both parts are open source with different licensing terms.\n  ",
   "cordova": {
     "id": "countly-sdk-js",
     "platforms": [
@@ -17,22 +9,111 @@
       "android"
     ]
   },
+  "dependencies": {
+    "create-react-context": "undefined0.2.2",
+    "fbjs": "undefined0.8.17",
+    "decode-uri-component": "undefined0.2.0",
+    "gud": "undefined1.0.0",
+    "encoding": "undefined0.1.12",
+    "hoist-non-react-statics": "undefined3.3.0",
+    "asap": "undefined2.0.6",
+    "is-stream": "undefined1.1.0",
+    "iconv-lite": "undefined0.4.24",
+    "isarray": "undefined0.0.1",
+    "core-js": "undefined1.2.7",
+    "object-assign": "undefined4.1.1",
+    "loose-envify": "undefined1.4.0",
+    "node-fetch": "undefined1.7.3",
+    "isomorphic-fetch": "undefined2.2.1",
+    "invariant": "undefined2.2.4",
+    "query-string": "undefined6.2.0",
+    "promise": "undefined7.3.1",
+    "path-to-regexp": "undefined1.7.0",
+    "prop-types": "undefined15.6.2",
+    "react-native-gesture-handler": "undefined1.0.15",
+    "react-native-screens": "undefined1.0.0-alpha.22",
+    "react-is": "undefined16.7.0",
+    "react-lifecycles-compat": "undefined3.0.4",
+    "js-tokens": "undefined4.0.0",
+    "react-native-tab-view": "undefined1.3.2",
+    "react-navigation": "undefined3.1.2",
+    "react-navigation-drawer": "undefined1.1.0",
+    "react-navigation-stack": "undefined1.0.6",
+    "react-navigation-tabs": "undefined1.0.2",
+    "strict-uri-encode": "undefined2.0.0",
+    "safer-buffer": "undefined2.1.2",
+    "setimmediate": "undefined1.0.5",
+    "react-native-safe-area-view": "undefined0.12.0",
+    "whatwg-fetch": "undefined3.0.0",
+    "ua-parser-js": "undefined0.7.19"
+  },
+  "devDependencies": {
+    "core-js": "undefined1.2.7",
+    "create-react-context": "undefined0.2.2",
+    "asap": "undefined2.0.6",
+    "decode-uri-component": "undefined0.2.0",
+    "encoding": "undefined0.1.12",
+    "fbjs": "undefined0.8.17",
+    "gud": "undefined1.0.0",
+    "hoist-non-react-statics": "undefined3.3.0",
+    "iconv-lite": "undefined0.4.24",
+    "isarray": "undefined0.0.1",
+    "isomorphic-fetch": "undefined2.2.1",
+    "invariant": "undefined2.2.4",
+    "js-tokens": "undefined4.0.0",
+    "is-stream": "undefined1.1.0",
+    "loose-envify": "undefined1.4.0",
+    "node-fetch": "undefined1.7.3",
+    "object-assign": "undefined4.1.1",
+    "query-string": "undefined6.2.0",
+    "prop-types": "undefined15.6.2",
+    "path-to-regexp": "undefined1.7.0",
+    "promise": "undefined7.3.1",
+    "react-lifecycles-compat": "undefined3.0.4",
+    "react-native-safe-area-view": "undefined0.12.0",
+    "react-native-gesture-handler": "undefined1.0.15",
+    "react-is": "undefined16.7.0",
+    "react-native-screens": "undefined1.0.0-alpha.22",
+    "react-native-tab-view": "undefined1.3.2",
+    "react-navigation": "undefined3.1.2",
+    "safer-buffer": "undefined2.1.2",
+    "react-navigation-drawer": "undefined1.1.0",
+    "react-navigation-stack": "undefined1.0.6",
+    "react-navigation-tabs": "undefined1.0.2",
+    "setimmediate": "undefined1.0.5",
+    "strict-uri-encode": "undefined2.0.0",
+    "whatwg-fetch": "undefined3.0.0",
+    "ua-parser-js": "undefined0.7.19"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Countly/countly-sdk-js.git"
+  },
   "keywords": [
+    "Event",
+    "Mobile analytical",
     "ecosystem:cordova",
-    "ecosystem:phonegap",
     "cordova-ios",
     "cordova-android"
   ],
-  "engines": {
-
-  },
-  "author": "Trinisoft Technologies Pvt. Ltd.",
+  "engines": [
+    {
+      "name": "cordova",
+      "version": ">=3.0.0"
+    },
+    {
+      "name": "cordova-android",
+      "version": ">=3.0.0"
+    },
+    {
+      "name": "cordova-ios",
+      "version": ">=3.0.0"
+    }
+  ],
+  "author": "",
   "license": "MIT",
-  "scripts": {
-
+  "bugs": {
+    "url": "https://github.com/Countly/countly-sdk-js/issues"
   },
-  "devDependencies": {
-  },
-  "dependencies": {
-  }
+  "homepage": "https://github.com/Countly/countly-sdk-js#readme"
 }
